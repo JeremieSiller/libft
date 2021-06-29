@@ -1,6 +1,14 @@
 # LIBFT - my own library
 ___
 
+## Table of contents
+1. [About](#about)
+2. [CTYPE](#ctype)
+3. [STRINGS](#strings-mem-functions)
+4. [PUT-FUNCTIONS](#put-functions)
+5. [STDLIB](#stdlib)
+6. [STRING](#string)
+
 ## About
 
 libft is the first project at 42. It is about creating your first library and recoding some functions from libc. 42 only allows some low-level functions like write, read, malloc or free. If you want to use *high-level* functions you have to code them yourself. In some of the following projects 42-students are allowed to reuse functions from libft. Most of the functions are from librarys like ctype.h or string.h. Functions that are not part of the c-standard will be explicitly named in the description of the different parts.
@@ -71,7 +79,7 @@ make clean / make clean / make re
 ## PUT-FUNCTIONS
 
 
-> The put-functions are useful to write to different filedescriptors and therefore into files. If you finished ft_printf these functions wont be useful to write to stdout anymore. A filedescriptor has to be bigger than -1. FD = 0 is for standard input. FD = 1 is for standard output. FD = 2 is for standard error. FD > 2 is for a file (which was opened with open).
+> The put-functions are useful to write to different filedescriptors and therefore into files.
 > These functions are not part of libc and are part of the second part of the task.
 
 | Prototype                                  | Description                          | Used functions |
