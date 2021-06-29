@@ -1,4 +1,18 @@
 # LIBFT - my own library
+___
+
+## About
+
+libft is the first project at 42. It is about creating your first library and recoding some functions from libc. 42 only allows some low-level functions like write, read, malloc or free. If you want to use *high-level* functions you have to code them yourself. In some of the following projects 42-students are allowed to reuse functions from libft. Most of the functions are from librarys like ctype.h or string.h. Functions that are not part of the c-standard will be explicitly named in the description of the different parts.
+
+**How the tables work:**
+| Prototype                     | Description | Used functions     | useful? |
+| :---                          | :---        | :---               | :---    |
+| shows the prototype of the function. To save space the keyword *const* remains unused | a really shot description. for a longer description please read the manual | external functions used like free or malloc | my personal opinion wether a function is useful or not |
+
+> hints are given for other 42 students I shared this with
+
+**How to use:**
 
 ## CTYPE
 
@@ -6,7 +20,7 @@
 > testing and mapping characters.
 
 
-| Prototype               | Description | Used functions     | useful? |
+| Prototype                     | Description | Used functions     | useful? |
 | :---                          |    :----:                                                | :---: | ---: |
 | ```int ft_isalpha(int c)```   | returns wether an integer is a letter or not             | none  | mid  |
 | ```int ft_isalnum(int c)```   | returns wether an integer is aplhanummerical or not      | none  | mid  |
@@ -20,11 +34,11 @@
 
 
 > The strings.h header file of the C Standard Library declares several functions that are useful for
-> manipulating any type of arrays (but bytewise).
+> manipulating any type of arrays or pointers.
 
 
 | Prototype                                                     | Description                                            | Used functions | useful? |
-| :---                                                          |    :----:                                              | :---:          | ---:    |
+| :---                                                          | :----                                                  | :---            | ---    |
 | ```void ft_bzero(void *s, size_t n)```                        | sets n bytes of s to 0                                 | none           | mid     |
 | ```void *ft_memccpy(void *dst, void *src, int c, size_t n)``` | copys n bytes from src to dst until it hits c          | none           | low     |
 | ```void *ft_memchr(const void *s, int c, size_t n)```         | finds c in n bytes of s                                | none           | mid     |
