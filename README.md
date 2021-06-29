@@ -130,11 +130,11 @@ make clean / make clean / make re
 > The lst-funtcions allow you to manipulate and use lists. Lists are quiet useful if you dont know the final length of an array because you can just append as many nodes as you until you run out of memory. 
 
 ```c
-typedef struct			s_list
+typedef struct		s_list
 {
-	void			*content;
+	void		*content;
 	struct s_list	*next;
-}	       			t_list;
+}	       		t_list;
 ```
 
 | Prototype               | Description | Used functions     |
