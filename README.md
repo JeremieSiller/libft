@@ -8,6 +8,7 @@ ___
 4. [PUT-FUNCTIONS](#put-functions)
 5. [STDLIB](#stdlib)
 6. [STRING](#string)
+7. [LIST_FUNCTIONS](#list-functions)
 
 ## About
 
