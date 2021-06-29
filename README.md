@@ -6,15 +6,15 @@
 > testing and mapping characters.
 
 
-| Prototype               | Description | Used functions     | usefull? |
-| :---                    |    :----:   |          :---: | ---: |
-| int ft_isalpha(int c)   | returns wether an integer is a letter or not             | none | mid |
-| int ft_isalnum(int c)   | returns wether an integer is aplhanummerical or not      | none | mid |
-| int ft_isalascii(int c) | returns wether an integer is an ascii-value or not       | none | mid |
-| int ft_isprint(int c)   | returns wether an integer is printable or not            | none | mid |
-| int ft_isdigit(int c)   | returns wether an integer is a digit or not              | none | mid |
-| int ft_tolower(int c)   | returns an uppercase letter as a lowercase letter        | none | mid |
-| int ft_toupper(int c)   | returns a lowercase letter as an uppercase letter        | none | mid |
+| Prototype               | Description | Used functions     | useful? |
+| :---                          |    :----:                                                | :---: | ---: |
+| ```int ft_isalpha(int c)```   | returns wether an integer is a letter or not             | none  | mid  |
+| ```int ft_isalnum(int c)```   | returns wether an integer is aplhanummerical or not      | none  | mid  |
+| ```int ft_isascii(int c)```   | returns wether an integer is an ascii-value or not       | none  | mid  |
+| ```int ft_isprint(int c)```   | returns wether an integer is printable or not            | none  | mid  | 
+| ```int ft_isdigit(int c)```   | returns wether an integer is a digit or not              | none  | mid  |
+| ```int ft_tolower(int c)```   | returns an uppercase letter as a lowercase letter        | none  | mid  |
+| ```int ft_toupper(int c)```   | returns a lowercase letter as an uppercase letter        | none  | mid  |
 
 ## STRINGS (mem-functions)
 
@@ -23,32 +23,32 @@
 > manipulating any type of arrays (but bytewise).
 
 
-| Prototype               | Description | Used functions     | useful? |
-| :---                    |    :----:   |          :---: |          ---: |
-| void ft_bzero(void *s, size_t n)                                | sets all bytes of s (any datatype) to 0                | none | mid |
-| void *ft_memccpy(void *dst, const void *src, int c, size_t n)   | copys n bytes from src to dst until it hits c          | none | low |
-| void *ft_memchr(const void *s, int c, size_t n)                 | finds c in s (range of n)                              | none | mid |
-| int ft_memcmp(const void *s1, const void *s2, size_t n)         | returns the first difference between s1 and s2         | none | mid |
-| void *ft_memcpy(void *dst, const void *src, size_t n)           | copies n bytes from src to dst                         | none | high|
-| void 	*ft_memmove(void *dst, const void *src, size_t len)       | same as memcpy but handles overlaps                    | none | high|
-| void	*ft_memset(void *b, int c, size_t len)                    | set len bytes of b to c                                | none | mid |
+| Prototype                                                     | Description                                            | Used functions | useful? |
+| :---                                                          |    :----:                                              | :---:          | ---:    |
+| ```void ft_bzero(void *s, size_t n)```                        | sets n bytes of s to 0                                 | none           | mid     |
+| ```void *ft_memccpy(void *dst, void *src, int c, size_t n)``` | copys n bytes from src to dst until it hits c          | none           | low     |
+| ```void *ft_memchr(const void *s, int c, size_t n)```         | finds c in n bytes of s                                | none           | mid     |
+| ```int ft_memcmp(const void *s1, void *s2, size_t n)```       | returns the first difference between s1 and s2         | none           | mid     |
+| ```void *ft_memcpy(void *dst, void *src, size_t n)```         | copies n bytes from src to dst                         | none           | high    |
+| ```void *ft_memmove(void *dst, void *src, size_t n)```        | same as memcpy but handles overlaps                    | none           | high    |
+| ```void *ft_memset(void *s, int c, size_t n)```               | set n bytes of s to c                                  | none           | mid     |
 
 
-> Most useful functions: memcpy/memmove. Memcyp and Memmove are awesome because you can even use it for n-dimnesional arrays. Be careful and check that you pass the correct size. If you want to copy for example a whole array like this int arr[8][8] you would pass sizeof(int) * (8 * 8) for the paramter n\len.
+> most useful functions: memcpy/memmove. Memcyp and Memmove are awesome because you can even use it for n-dimnesional arrays. Be careful and check that you pass the correct size. If you want to copy for example a whole array like this: int arr[8][8] you would pass sizeof(int) * (8 * 8) for the paramter size_t n.
 
 
-## PUTFUNCTIONS
+## PUT-FUNCTIONS
 
 
-> The putfuntions are usefule to write to different filedescriptors and therefore into files. If you finished ft_printf these functions wont be usefule to write to stdout anymore. A filedescriptor has to be bigger than -1. FD = 0 is for standard input. FD = 1 is for standard output. FD = 2 is for standard error. FD > 2 is for a file (which was opened with open).
+> The putfunctions are useful to write to different filedescriptors and therefore into files. If you finished ft_printf these functions wont be usefule to write to stdout anymore. A filedescriptor has to be bigger than -1. FD = 0 is for standard input. FD = 1 is for standard output. FD = 2 is for standard error. FD > 2 is for a file (which was opened with open).
 
 
-| Prototype               | Description | Used functions     | useful? |
-| :---                    |    :----:   |          :---: | ---: |
-| void ft_putchar_fd(char c, int fd)   | writes a char to fd                  | write | mid |
-| void ft_putstr_fd(char *s, int fd)   | writes a string to fd                | write | mid |
-| void ft_putendl_fd(char *s, int fd)  | writes a string and a new line to fd | write | low |
-| void	ft_putnbr_fd(int n, int fd)    | writes a integer to fd               | write | mid |
+| Prototype                                  | Description                          | Used functions | useful? |
+| :---                                       |    :----:                            | :---:          | ---:    |
+| ```void ft_putchar_fd(char c, int fd)```   | writes a char to fd                  | write          | mid     |
+| ```void ft_putstr_fd(char *s, int fd)```   | writes a string to fd                | write          | mid     |
+| ```void ft_putendl_fd(char *s, int fd)```  | writes a string and a new line to fd | write          | low     |
+| ```void ft_putnbr_fd(int n, int fd)```     | writes an integer to fd              | write          | mid     |
 
 
 > most useful function: ft_putnbr_fd is useful to write numbers which isnt that easy without printf. 
@@ -60,12 +60,12 @@
 > The stdlib.h header defines four variable types, several macros, and various functions for performing general functions.
 
 
-| Prototype               | Description | Used functions     | useful? |
-| :---                    |    :----:   |          :---: | ---: |
-| int ft_atoi(const char *str)                | returns a string as an integer                                                    | none   | high |
-| void	*ft_calloc(size_t count, size_t size))| returns an allocated pointer of size count * len and sets mem to 0                | malloc | mid |
+| Prototype                                         | Description                                                        | Used functions | useful? |
+| :---                                              |    :----:                                                          | :---:          | ---:    |
+| ```int ft_atoi(const char *str)```                | returns a string as an integer                                     | none           | high    |
+| ```void *ft_calloc(size_t count, size_t size))``` | returns an allocated pointer of size count * len and sets mem to 0 | malloc         | mid     |
 
-> most usefule function: ft_aoti. ft_atoi is extremely useful in many projects. In ft_printf you will probably use it a lot
+> most useful function: ft_aoti. ft_atoi is extremely useful in many projects. In ft_printf you will probably use it a lot
 
 [//]: <| I recommend adding realloc here | realloc gives a pointer more memory withpout loosing its value               | malloc, free | high |> 
 
