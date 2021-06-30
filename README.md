@@ -109,25 +109,27 @@ make clean / make clean / make re
 
 >The string.h header defines one variable type, one macro, and various functions for manipulating arrays of characters.
 
+>ft_strmapi, ft_strsubstr and ft_strtrim are not part of string.h and some extra tasks from 42
+
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
-| ```char *ft_strchr(const char *s, int c)```                   | finds c in s, returns 0 if not found                                  | none   |
-| ```char *ft_strrchr(const char *s, int c)```                  | finds c in s starting from the back (return same as strchr)           | none   |
-| ```char *ft_strdup(const char *src)```                        | duplicates src (Check if NULL is returned!!)                          | malloc |
-| ```char *ft_strjoin(char *s1, char *s2)```                    | creates new string out of concatnation of s1 and s2                   | malloc |
+| ```char *ft_strchr(const char *s, int c)```                   | finds c in s, returns first accurance of c as a pointer, returns 0 if nothing is found                               | none   |
+| ```char *ft_strrchr(const char *s, int c)```                  | finds c in s, returns last accurance of c as a pointer, returns 0 if nothing is found           | none   |
+| ```char *ft_strdup(const char *src)```                        | duplicates src.                                                       | malloc |
+| ```char *ft_strjoin(char *s1, char *s2)```                    | creates a new string out of concatination of s1 and s2                | malloc |
 | ```size_t ft_strlcat(char *dst, char *src, size_t dstsize)``` | adds dstzie - strlen(dstzie) - 1 chars to dst from src                | none   |
 | ```size_t ft_strlcpy(char *dst, char *src, size_t dstsize)``` | copys dstzie - 1 chars from dst to src                                | none   |
-| ```char *ft_strmapi(char *s, char (*f)(unsigned int, char)9``` | apllies function f on every char  of s                                | none   |
-| ```size_t ft_strlcpy(char *dst, char *src, size_t dstsize)``` | returns of first difference of src and dst (0 if no difference accured| none   |
+| ```char *ft_strmapi(char *s, char (*f)(unsigned int, char)9``` | applies function f on every char of s                                | none   |
+| ```int ft_strncmp(const char *s1, const char *s2, size_t n)``` | returns the first difference of src and dst (0 if no difference accured) in the first n bytes| none   |
 | ```size_t ft_strlen(const char *s)```                         | returns the length of a string s                                      | none   |
 | ```char *ft_strnstr(const char *haystack, char *needle, size_t len)```| finds the needle in the haystack                              | none   |
 | ```char *ft_substr(char *s, unsigned int start, size_t len)```| creates a substring of s from start to start + len                    | malloc |
-| ```char *ft_strtrim(char *s1, char *set)```                   | creates a trimmed substring of *s without chars in set                | malloc |
+| ```char *ft_strtrim(char *s1, char *set)```                   | creates a trimmed substring of s1 with all chars from set cut from the end & the beginning                 | malloc |
 
 ## LIST-FUNCTIONS
 
-> The lst-funtcions allow you to manipulate and use lists. Lists are quiet useful if you dont know the final length of an array because you can just append as many nodes as you until you run out of memory. 
+> The lst-funtcions allow you to manipulate and use lists. Lists are quiet useful if you dont know the final length of an array because you can just append as many nodes as you want until you run out of memory. 
 
 ```c
 typedef struct		s_list
@@ -139,13 +141,13 @@ typedef struct		s_list
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
-| ```void ft_lstadd_back(t_list **lst, t_list *new)```          | adds node new to tehe end of lst                                      | none   |
-| ```void ft_lstadd_front(t_list **lst, t_list *new)```              | adds node new to the front of lst                                | none   |
-| ```void ft_lstclear(t_list **lst, void (*del)(void*))```           | deletes and frees every node of lst                                   | free   |
-| ```void ft_lstdelone(t_list *lst, void (*del)(void*))```            | deletes and frees one node                                            | free   |
-| ```void ft_lstiter(t_list *lst, void (*f)(void *))```               | apllies function f on the content of every node                       | none   |
-| ```t_list *ft_lstlast(t_list *lst)```                               | return the last node of lst                                           | none   |
-| ```t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))``` | creates new list out of apllication of on content           | free   |
-| ```t_list *ft_lstnew(void *content)```                              | creates a new and give the paramter to the conten                     | malloc |
-| ```int ft_lstsize(t_list *lst)```                                   | returns the size of list                                              | none   |
+| ```void ft_lstadd_back(t_list **lst, t_list *new)```          | adds node new to the end of list lst                                     | none   |
+| ```void ft_lstadd_front(t_list **lst, t_list *new)```              | adds node new to the front of list lst                                | none   |
+| ```void ft_lstclear(t_list **lst, void (*del)(void*))```           | deletes and frees every node of list lst                                   | free   |
+| ```void ft_lstdelone(t_list *lst, void (*del)(void*))```            | deletes and frees node lst                                            | free   |
+| ```void ft_lstiter(t_list *lst, void (*f)(void *))```               | applies function f on the content of every node                       | none   |
+| ```t_list *ft_lstlast(t_list *lst)```                               | returns the last node of list lst                                     | none   |
+| ```t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))``` | creates a new list out of application of f on content of list lst  | free, malloc   |
+| ```t_list *ft_lstnew(void *content)```                              | creates a new node and gives the paramter to its content              | malloc |
+| ```int ft_lstsize(t_list *lst)```                                   | returns the size of list lst                                             | none   |
 
