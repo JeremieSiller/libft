@@ -158,3 +158,13 @@ typedef struct		s_list
 | ```char *ft_strjoin(char *s1, char *s2)```                    | creates a new string out of concatination of s1 and s2               | malloc |
 | ```char *ft_itoa(int n)```                                    | returns an integer as a string                                       | malloc |
 | ```char **ft_split(char *str, char c)```                      | returns an array of string out of the splited str by char c          | malloc (free) |
+
+## FT_PRINTF
+
+> ft_printf is a function which mimics the printf of stdio.h. It doesnt mimic everything but some standard conversions are working. For more info look into the doccumentaion of ft_printf
+
+| Prototype               | Description | Used functions     |
+| :---                    |    :----    |          :---      |
+| ```ft_printf(char *format, ...)``` | mimic of printf | malloc, free, write, functions of stdarg.h|
+
+## ADDED-FUNCTIONS
