@@ -169,3 +169,10 @@ typedef struct		s_list
 | ```ft_printf(char *format, ...)``` | mimic of printf | malloc, free, write, functions of stdarg.h|
 
 ## ADDED-FUNCTIONS
+
+> these are some functions I added my self. This list will probably keep growing during my time at 42.
+
+| Prototype               | Description | Used functions     |
+| :---                    |    :----    |          :---      |
+| ```ft_utoa(unsigned int n)``` | returns a string out of an unsigned integer n | malloc |
+| ```char	*ft_strcpy(char *dst, char *src)``` | copies src to dst including the NULL-terminator | none |
