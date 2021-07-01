@@ -11,6 +11,7 @@ ___
 7. [LIST-FUNCTIONS](#list-functions)
 8. [EXTRA-FUNCTIONS](#extra-functions)
 9. [FT_PRINTF](#ft_printf)
+10. [ADDED-FUNCTIONS](#added-functions)
 
 ## About
 
