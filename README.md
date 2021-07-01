@@ -145,7 +145,7 @@ typedef struct		s_list
 | ```t_list *ft_lstnew(void *content)```                              | creates a new node and gives the paramter to its content              | malloc |
 | ```int ft_lstsize(t_list *lst)```                                   | returns the size of list lst                                             | none   |
 
-##EXTRA-FUNCTIONS
+## EXTRA-FUNCTIONS
 
 > These are some extra functions which are not part of the libc standard.
 
@@ -155,4 +155,5 @@ typedef struct		s_list
 | ```char *ft_strtrim(char *s1, char *set)```                   | creates a trimmed substring of s1 with all chars from set cut from the end & the beginning                 | malloc |
 | ```char *ft_strmapi(char *s, char (*f)(unsigned int, char)``` | applies function f on every char of s                                | none   |
 | ```char *ft_strjoin(char *s1, char *s2)```                    | creates a new string out of concatination of s1 and s2               | malloc |
-| ```char *ft_itoa(int n)```                                    | returns an integer as a string                                       | malloc | 
+| ```char *ft_itoa(int n)```                                    | returns an integer as a string                                       | malloc |
+| ```char **ft_split(char *str, char c)```                      | returns an array of string out of the splited str by char c          | malloc (free) |
