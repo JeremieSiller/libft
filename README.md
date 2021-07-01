@@ -109,23 +109,17 @@ make clean / make clean / make re
 
 >The string.h header defines one variable type, one macro, and various functions for manipulating arrays of characters.
 
->ft_strmapi, ft_strsubstr and ft_strtrim are not part of string.h and some extra tasks from 42
-
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
 | ```char *ft_strchr(const char *s, int c)```                   | finds c in s, returns first accurance of c as a pointer, returns 0 if nothing is found                               | none   |
 | ```char *ft_strrchr(const char *s, int c)```                  | finds c in s, returns last accurance of c as a pointer, returns 0 if nothing is found           | none   |
 | ```char *ft_strdup(const char *src)```                        | duplicates src.                                                       | malloc |
-| ```char *ft_strjoin(char *s1, char *s2)```                    | creates a new string out of concatination of s1 and s2                | malloc |
 | ```size_t ft_strlcat(char *dst, char *src, size_t dstsize)``` | adds dstzie - strlen(dstzie) - 1 chars to dst from src                | none   |
 | ```size_t ft_strlcpy(char *dst, char *src, size_t dstsize)``` | copys dstzie - 1 chars from dst to src                                | none   |
-| ```char *ft_strmapi(char *s, char (*f)(unsigned int, char)9``` | applies function f on every char of s                                | none   |
 | ```int ft_strncmp(const char *s1, const char *s2, size_t n)``` | returns the first difference of src and dst (0 if no difference accured) in the first n bytes| none   |
 | ```size_t ft_strlen(const char *s)```                         | returns the length of a string s                                      | none   |
 | ```char *ft_strnstr(const char *haystack, char *needle, size_t len)```| finds the needle in the haystack                              | none   |
-| ```char *ft_substr(char *s, unsigned int start, size_t len)```| creates a substring of s from start to start + len                    | malloc |
-| ```char *ft_strtrim(char *s1, char *set)```                   | creates a trimmed substring of s1 with all chars from set cut from the end & the beginning                 | malloc |
 
 ## LIST-FUNCTIONS
 
@@ -151,3 +145,14 @@ typedef struct		s_list
 | ```t_list *ft_lstnew(void *content)```                              | creates a new node and gives the paramter to its content              | malloc |
 | ```int ft_lstsize(t_list *lst)```                                   | returns the size of list lst                                             | none   |
 
+##EXTRA-FUNCTIONS
+
+> These are some extra functions which are not part of the libc standard.
+
+| Prototype               | Description | Used functions     |
+| :---                    |    :----    |          :---      |
+| ```char *ft_substr(char *s, unsigned int start, size_t len)```| creates a substring of s from start to start + len                    | malloc |
+| ```char *ft_strtrim(char *s1, char *set)```                   | creates a trimmed substring of s1 with all chars from set cut from the end & the beginning                 | malloc |
+| ```char *ft_strmapi(char *s, char (*f)(unsigned int, char)``` | applies function f on every char of s                                | none   |
+| ```char *ft_strjoin(char *s1, char *s2)```                    | creates a new string out of concatination of s1 and s2               | malloc |
+| ```char *ft_itoa(int n)```                                    | returns an integer as a string                                       | malloc | 
