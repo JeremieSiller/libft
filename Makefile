@@ -59,8 +59,8 @@ SOURCES =	ctype/ft_isalnum.c\
 			ft_printf/ft_string.c\
 			ft_printf/ft_unsigned.c\
 			ft_printf/utility.c\
-			get_next_line/get_next_line.c\
-			get_next_line/get_next_line_utils.c
+			gnl/get_next_line.c\
+			gnl/get_next_line_utils.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
