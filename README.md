@@ -167,8 +167,16 @@ typedef struct		s_list
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
-| ```ft_printf(char *format, ...)``` | mimic of printf | malloc, free, write, functions of stdarg.h|
+| ```int ft_printf(char *format, ...)``` | mimic of printf | malloc, free, write, functions of stdarg.h|
 
+## GET_NEXT_LINE
+
+> get_next_line is a function to get the next line of a file or from standard output/ standard input/ standard error. For more information look at the get_next_line repository. (for the purpose of libft BUFFER_SIZE is predefined as 100)
+
+| Prototype               | Description | Used functions     |
+| :---                    |    :----    |          :---      |
+| ```int get_next_line(int fd, char **line)``` | puts the next line of fd into \*line | malloc, free, read|
+ 
 ## ADDED-FUNCTIONS
 
 > these are some functions I added my self. This list will probably keep growing during my time at 42.
