@@ -10,7 +10,7 @@ ___
 6. [STRING](#string)
 7. [LIST-FUNCTIONS](#list-functions)
 8. [EXTRA-FUNCTIONS](#extra-functions)
-9. [FT_PRINTF](#ft-printf)
+9. [FT_PRINTF](#ft_printf)
 
 ## About
 
