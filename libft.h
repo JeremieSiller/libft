@@ -6,7 +6,7 @@
 /*   By: jsiller <jsiller@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/02 23:23:51 by jsiller           #+#    #+#             */
-/*   Updated: 2021/06/17 13:03:05 by jsiller          ###   ########.fr       */
+/*   Updated: 2021/07/01 16:00:37 by jsiller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,8 @@ char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strtrim(char const *s1, char const *set);
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+int			ft_printf(const char *input, ...);
+
+char		*ft_utoa(unsigned int n);
+char		*ft_strcpy(char *dst, char *src);
 #endif

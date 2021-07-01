@@ -37,16 +37,28 @@ SOURCES =	ctype/ft_isalnum.c\
 			stdlib/ft_calloc.c\
 			string/ft_strchr.c\
 			string/ft_strdup.c\
-			string/ft_strjoin.c\
+			extra/ft_strjoin.c\
 			string/ft_strlcat.c\
 			string/ft_strlcpy.c\
 			string/ft_strlen.c\
-			string/ft_strmapi.c\
+			extra/ft_strmapi.c\
 			string/ft_strncmp.c\
 			string/ft_strnstr.c\
 			string/ft_strrchr.c\
-			string/ft_strtrim.c\
-			string/ft_substr.c
+			extra/ft_strtrim.c\
+			extra/ft_substr.c\
+			added/ft_strcpy.c\
+			added/ft_utoa.c\
+			ft_printf/arguement.c\
+			ft_printf/ft_char.c\
+			ft_printf/ft_integer.c\
+			ft_printf/ft_percentage.c\
+			ft_printf/ft_pointer.c\
+			ft_printf/ft_printf.c\
+			ft_printf/ft_store.c\
+			ft_printf/ft_string.c\
+			ft_printf/ft_unsigned.c\
+			ft_printf/utility.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
