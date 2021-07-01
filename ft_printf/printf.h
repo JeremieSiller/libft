@@ -6,7 +6,7 @@
 /*   By: jsiller <jsiller@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/16 14:12:05 by jsiller           #+#    #+#             */
-/*   Updated: 2021/07/01 15:59:29 by jsiller          ###   ########.fr       */
+/*   Updated: 2021/07/01 17:12:33 by jsiller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		g_sign;
 va_list	g_args;
 
 int		ft_printf(const char *input, ...);
-
 
 void	ft_putchar_a(char c);
 void	ft_putstr_a(char *str, int len);

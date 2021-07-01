@@ -6,7 +6,7 @@
 /*   By: jsiller <jsiller@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 09:53:03 by jsiller           #+#    #+#             */
-/*   Updated: 2021/07/01 15:58:25 by jsiller          ###   ########.fr       */
+/*   Updated: 2021/07/01 17:12:00 by jsiller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	ft_putchar_a(char c)
 	g_ret++;
 }
 
-int		ft_strlen_b(char *str)
+int	ft_strlen_b(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
