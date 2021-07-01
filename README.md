@@ -11,7 +11,8 @@ ___
 7. [LIST-FUNCTIONS](#list-functions)
 8. [EXTRA-FUNCTIONS](#extra-functions)
 9. [FT_PRINTF](#ft_printf)
-10. [ADDED-FUNCTIONS](#added-functions)
+10. [GET_NEXT_LINE](#get_next_line)
+11. [ADDED-FUNCTIONS](#added-functions)
 
 ## About
 
@@ -171,7 +172,7 @@ typedef struct		s_list
 
 ## GET_NEXT_LINE
 
-> get_next_line is a function to get the next line of a file or from standard output/ standard input/ standard error. For more information look at the get_next_line repository. (for the purpose of libft BUFFER_SIZE is predefined as 100)
+> get_next_line is a function to get the next line of a file or from standard output/ standard input/ standard error. For more information look at the get_next_line repository. (For the purpose of this project BUFFER_SIZE is predefined as 100)
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
