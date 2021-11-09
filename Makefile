@@ -84,6 +84,7 @@ OBJECTS = $(SOURCES:.c=.o)
 		printf $(Y)"Compiling $(NAME):\n";\
 		fi;
 	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(eval COUNT := $(shell ls -R | grep -E "\.o" | wc -w))
 	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
 	@printf "\r"; \
 	x=0 ; \
@@ -125,6 +126,6 @@ fclean: clean
 
 re: fclean all
 
-#catches signals, activates cursor and removes object files on interrupt
+#catches signals, activates cursor on interrupt
 external-target:
-	@bash -c "trap 'trap - SIGINT SIGTERM ERR; tput cnorm --normal; rm -f $(OBJECTS); exit 1' SIGINT SIGTERM ERR; $(MAKE) $(NAME)"
+	@bash -c "trap 'trap - SIGINT SIGTERM ERR; tput cnorm --normal; exit 1' SIGINT SIGTERM ERR; $(MAKE) $(NAME)"
