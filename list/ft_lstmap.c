@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsiller <jsiller@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: jsiller <jsiller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 10:28:17 by jsiller           #+#    #+#             */
-/*   Updated: 2021/06/26 17:50:10 by jsiller          ###   ########.fr       */
+/*   Updated: 2021/11/09 17:14:47 by jsiller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	{
 		elem = ft_lstnew((*f)(lst -> content));
 		if (!elem)
-			ft_lstdelone(new, del);
+		{
+			ft_lstclear(&new, del);
+			return (0);
+		}
 		else if (elem)
 			ft_lstadd_back(&new, elem);
 		lst = lst->next;

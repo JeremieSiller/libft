@@ -21,7 +21,7 @@ libft is the first project at 42. It is about creating your first library and re
 **How the tables work:**
 | Prototype                     | Description | Used functions |
 | :---                          | :---        | :---           |   
-| shows the prototype of the function. To save space the keyword *const* remains unused | a really shot description. for a longer description please read the manual | external functions used like free or malloc |
+| shows the prototype of the function. To save space the keyword *const* remains unused | a really short description. For a longer description please read the manual | external functions used (f.e free, malloc) |
 
 > Description of the library the real function are from
 
@@ -43,7 +43,7 @@ compile your files with libft.a
 ```bash
 gcc yourfile_01.c yourfile_02.c libft.a
 ```
-use clean to delete all object files, fclean to remove all object files and libft.a and re to recompile the library 
+use clean to delete all object files, fclean to remove all object files and libft.a and re to recompile the library
 ```bash
 make clean / make clean / make re 
 ```
@@ -85,7 +85,7 @@ make clean / make clean / make re
 
 
 > The put-functions are useful to write to different filedescriptors and therefore into files.
-> These functions are not part of libc and are part of the second part of the task.
+> These functions are not part of libc
 
 | Prototype                                  | Description                          | Used functions |
 | :---                                       |    :----                             | :---           |
@@ -105,8 +105,6 @@ make clean / make clean / make re
 | ```int ft_atoi(const char *str)```                | returns a string as an integer                                     | none           |
 | ```void *ft_calloc(size_t count, size_t size))``` | returns an allocated pointer of size count * len and sets mem to 0 | malloc         |
 
-[//]: <| I recommend adding realloc here | realloc gives a pointer more memory withpout loosing its value               | malloc, free | high |> 
-
 
 ## STRING
 
@@ -116,14 +114,14 @@ make clean / make clean / make re
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
-| ```char *ft_strchr(const char *s, int c)```                   | finds c in s, returns first accurance of c as a pointer, returns 0 if nothing is found                               | none   |
-| ```char *ft_strrchr(const char *s, int c)```                  | finds c in s, returns last accurance of c as a pointer, returns 0 if nothing is found           | none   |
-| ```char *ft_strdup(const char *src)```                        | duplicates src.                                                       | malloc |
-| ```size_t ft_strlcat(char *dst, char *src, size_t dstsize)``` | adds dstzie - strlen(dstzie) - 1 chars to dst from src                | none   |
-| ```size_t ft_strlcpy(char *dst, char *src, size_t dstsize)``` | copys dstzie - 1 chars from dst to src                                | none   |
-| ```int ft_strncmp(const char *s1, const char *s2, size_t n)``` | returns the first difference of src and dst (0 if no difference accured) in the first n bytes| none   |
-| ```size_t ft_strlen(const char *s)```                         | returns the length of a string s                                      | none   |
-| ```char *ft_strnstr(const char *haystack, char *needle, size_t len)```| finds the needle in the haystack                              | none   |
+| ```char *ft_strchr(char *s, int c)```                            | finds c in s, returns first accurance of c as a pointer, returns 0 if nothing is found               | none   |
+| ```char *ft_strrchr(char *s, int c)```                           | finds c in s, returns last accurance of c as a pointer, returns 0 if nothing is found                | none   |
+| ```char *ft_strdup(char *src)```                                 | allocates a new string and copys src to it                                                           | malloc |
+| ```size_t ft_strlcat(char *dst, char *src, size_t dstsize)```    | appens dstzie - strlen(dstzie) - 1 chars to dst from src                                             | none   |
+| ```size_t ft_strlcpy(char *dst, char *src, size_t dstsize)```    | copys dstzie - 1 chars from dst to src                                                               | none   |
+| ```int ft_strncmp(char *s1, char *s2, size_t n)```               | returns the first difference between src and dst (0 if no difference accures) in the first n bytes   | none   |
+| ```size_t ft_strlen(char *s)```                                  | returns the length of string s                                                                       | none   |
+| ```char *ft_strnstr(char *haystack, char *needle, size_t len)``` | returns pointer to first occurence of needle in haystack                                             | none   |
 
 ## LIST-FUNCTIONS
 
@@ -139,15 +137,15 @@ typedef struct		s_list
 
 | Prototype               | Description | Used functions     |
 | :---                    |    :----    |          :---      |
-| ```void ft_lstadd_back(t_list **lst, t_list *new)```          | adds node new to the end of list lst                                     | none   |
-| ```void ft_lstadd_front(t_list **lst, t_list *new)```              | adds node new to the front of list lst                                | none   |
-| ```void ft_lstclear(t_list **lst, void (*del)(void*))```           | deletes and frees every node of list lst                                   | free   |
-| ```void ft_lstdelone(t_list *lst, void (*del)(void*))```            | deletes and frees node lst                                            | free   |
-| ```void ft_lstiter(t_list *lst, void (*f)(void *))```               | applies function f on the content of every node                       | none   |
-| ```t_list *ft_lstlast(t_list *lst)```                               | returns the last node of list lst                                     | none   |
-| ```t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))``` | creates a new list out of application of f on content of list lst  | free, malloc   |
-| ```t_list *ft_lstnew(void *content)```                              | creates a new node and gives the paramter to its content              | malloc |
-| ```int ft_lstsize(t_list *lst)```                                   | returns the size of list lst                                             | none   |
+| ```void ft_lstadd_back(t_list **lst, t_list *new)```                          | adds node new to the end of list lst                                  | none           |
+| ```void ft_lstadd_front(t_list **lst, t_list *new)```                         | adds node new to the front of list lst                                | none           |
+| ```void ft_lstclear(t_list **lst, void (*del)(void*))```                      | deletes and frees every node of list lst                              | free           |
+| ```void ft_lstdelone(t_list *lst, void (*del)(void*))```                      | deletes and frees node lst                                            | free           |
+| ```void ft_lstiter(t_list *lst, void (*f)(void *))```                         | applies function f on the content of every node                       | none           |
+| ```t_list *ft_lstlast(t_list *lst)```                                         | returns the last node of list lst                                     | none           |
+| ```t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))``` | creates a new list out of application of f on content of list lst     | free, malloc   |
+| ```t_list *ft_lstnew(void *content)```                                        | creates a new node and gives the paramter to its content              | malloc         |
+| ```int ft_lstsize(t_list *lst)```                                             | returns the size of list lst                                          | none           |
 
 ## EXTRA-FUNCTIONS
 
