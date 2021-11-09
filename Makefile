@@ -1,7 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -c
+CFLAGS = -Wall -Wextra -Werror
 
 INCLUDES = libft.h
+
+SHELL := /bin/bash
 
 NAME = libft.a
 SOURCES =	ctype/ft_isalnum.c\
@@ -62,19 +64,67 @@ SOURCES =	ctype/ft_isalnum.c\
 			gnl/get_next_line.c\
 			gnl/get_next_line_utils.c
 
+COUNT = 0
+
+Y = "\033[33m"
+R = "\033[31m"
+G = "\033[32m"
+B = "\033[34m"
+X = "\033[0m"
+BLACK = "\033[38;2;52;52;52m"
+UP = "\033[A"
+CUT = "\033[K"
+
+
 OBJECTS = $(SOURCES:.c=.o)
 
-all: $(NAME)
+%.o : %.c
+	@tput civis --invisivble
+	@if [ $(COUNT) -eq 0 ] ; then\
+		printf $(Y)"Compiling $(NAME):\n";\
+		fi;
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
+	@printf "\r"; \
+	x=0 ; \
+	while [ $$x -ne $(COUNT) ]; do \
+		printf $(G)"▇"; \
+		let "x+=1"; \
+	done ; \
+	y=0; \
+	for x in $(SOURCES); do \
+		let "y+=1"; \
+	done ; \
+	x=$(COUNT); \
+	while [ $$x -ne $$y ] ; do \
+		printf " "; \
+		let "x+=1"; \
+	done; \
+	x=$(COUNT); \
+	let "x*=100"; \
+	printf $(X)"| "; \
+	echo -n $$((x / y)); \
+	printf "%%";
+
+
+all: external-target
+
+$(NAME):$(OBJECTS)
+	@printf "\n"
+	@tput cnorm --normal
+	@ar cr $@ $(OBJECTS)
+
 
 bonus: all
 
-$(NAME): $(OBJECTS)
-	ar cr $@ $(OBJECTS)
-
 clean:
-	rm -f $(OBJECTS)
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
+
+#catches signals, activates cursor and removes object files on interrupt
+external-target:
+	@bash -c "trap 'trap - SIGINT SIGTERM ERR; tput cnorm --normal; rm -f $(OBJECTS); exit 1' SIGINT SIGTERM ERR; $(MAKE) $(NAME)"

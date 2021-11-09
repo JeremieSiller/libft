@@ -3,60 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsiller <jsiller@student.42heilbronn.de    +#+  +:+       +#+        */
+/*   By: jsiller <jsiller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 19:09:38 by jsiller           #+#    #+#             */
-/*   Updated: 2021/06/26 17:48:09 by jsiller          ###   ########.fr       */
+/*   Updated: 2021/11/08 18:43:34 by jsiller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-char	**ft_protected(char *str, int (arr)[3])
+static int	get_len(char *str, char d)
 {
-	char	**ret;
+	int	i;
+	int	count;
 
-	if (!str)
-		return (0);
-	if (str && str[0] == 0)
+	i = 0;
+	count = 0;
+	while (str[i])
 	{
-		ret = malloc(sizeof(*ret));
-		(ret)[0] = NULL;
-		return (ret);
+		if (str[i] != d && (str[i + 1] == 0 || str[i + 1] == d))
+			count++;
+		i++;
 	}
-	ret = malloc(sizeof(char *) * ft_strlen(str) + 1);
-	if (!ret)
-		return (0);
-	arr[0] = 0;
-	arr[1] = 0;
-	return (ret);
+	return (count);
 }
 
-char	**ft_split(char *str, char c)
+static char	**allocate_arr(char *str, char d)
+{
+	char	**arr;
+
+	if (!str)
+		return (NULL);
+	arr = ft_calloc(sizeof(char *), get_len(str, d) + 1);
+	return (arr);
+}
+
+static char	**free_arr(char **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (NULL);
+}
+
+char	**ft_split(char *str, char d)
 {
 	char	**ret;
-	int		arr[3];
+	char	**tmp;
+	int		i;
 
-	ret = ft_protected(str, arr);
-	if (!ret || str[0] == 0)
-		return (ret);
-	while (str[arr[0]])
+	ret = allocate_arr(str, d);
+	if (!ret)
+		return (0);
+	tmp = ret;
+	while (*str)
 	{
-		while (str[arr[0]] == c && str[arr[0]])
-			arr[0]++;
-		if (str[arr[0]])
-		{
-			arr[2] = arr[0];
-			while (str[arr[0]] != c && str[arr[0]])
-				arr[0]++;
-			ret[arr[1]] = malloc(arr[0] - arr[2] + 1);
-			ft_memcpy(ret[arr[1]], &(str[arr[2]]), arr[0] - arr[2]);
-			ret[arr[1]][arr[0] - arr[2]] = 0;
-			arr[1]++;
-		}
-		if (str[arr[0]])
-			arr[0]++;
+		i = 0;
+		while (*str == d)
+			str++;
+		while (str[i] && str[i] != d)
+			i++;
+		if (i == 0)
+			break ;
+		*ret = ft_substr(str, 0, i);
+		if (!*ret)
+			return (free_arr(tmp));
+		while (*str != d && *str)
+			str++;
+		ret++;
 	}
-	ret[arr[1]] = 0;
-	return (ret);
+	return (tmp);
 }
