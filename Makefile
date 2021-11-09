@@ -79,7 +79,7 @@ CUT = "\033[K"
 OBJECTS = $(SOURCES:.c=.o)
 
 %.o : %.c
-	@tput civis --invisivble
+	@tput civis
 	@if [ $(COUNT) -eq 0 ] ; then\
 		printf $(Y)"Compiling $(NAME):\n";\
 		fi;
@@ -110,18 +110,47 @@ OBJECTS = $(SOURCES:.c=.o)
 
 all: external-target
 
-$(NAME):$(OBJECTS)
+$(NAME): $(OBJECTS)
 	@printf "\n"
 	@tput cnorm --normal
 	@ar cr $@ $(OBJECTS)
 
-
-bonus: all
+internal-clean:
+	@$(eval OBJECTS := $(shell find $(PWD) | grep -E "\.o" ))
+	@tput civis;\
+		size=0; \
+		for d in $(OBJECTS); do\
+			let "size+=1";\
+		done;\
+		y=0;\
+		for x in $(OBJECTS); do\
+			let "y+=1"; \
+			i=0; \
+			printf "\r";\
+			while [ $$i -ne $$y ]; do \
+				printf $(G)"▇"; \
+				let "i+=1"; \
+			done; \
+			while [ $$i -ne $$size ]; do \
+				let "i+=1"; \
+				printf " "; \
+			done; \
+			printf $(X)"| ";\
+			echo -n $$((y * 100 / i)); \
+			printf "%%";\
+			sleep 0.1; \
+			rm -f $$x; \
+		done;\
+		printf $(X)"\n";\
+		tput cnorm --normal
 
 clean:
-	@rm -f $(OBJECTS)
+	@printf $(Y)"Cleaning object-files:\n"
+	@bash -c "trap 'trap - SIGINT SIGTERM ERR; tput cnorm --normal; exit 1' SIGINT SIGTERM ERR; $(MAKE) internal-clean"
 
-fclean: clean
+fclean:
+	@printf $(Y)"Cleaning object-files and removing $(NAME)\n"
+	@bash -c "trap 'trap - SIGINT SIGTERM ERR; tput cnorm --normal; exit 1' SIGINT SIGTERM ERR; $(MAKE) internal-clean"
 	@rm -f $(NAME)
 
 re: fclean all
