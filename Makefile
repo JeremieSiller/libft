@@ -66,6 +66,8 @@ SOURCES =	ctype/ft_isalnum.c\
 
 COUNT = 0
 
+COUNT_SRC := $(shell ls -R | grep -E "\.c" | wc -l)
+
 Y = "\033[33m"
 R = "\033[31m"
 G = "\033[32m"
@@ -79,33 +81,37 @@ CUT = "\033[K"
 OBJECTS = $(SOURCES:.c=.o)
 
 %.o : %.c
-	@tput civis
 	@if [ $(COUNT) -eq 0 ] ; then\
 		printf $(Y)"Compiling $(NAME):\n";\
 		fi;
-	@$(CC) $(CFLAGS) -o $@ -c $<
 	@$(eval COUNT := $(shell ls -R | grep -E "\.o" | wc -w))
 	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
-	@printf "\r"; \
-	x=0 ; \
-	while [ $$x -ne $(COUNT) ]; do \
+	@$(CC) $(CFLAGS) -o $@ -c $<
+	@if [ $(COUNT) -ne $$(($(COUNT_SRC) + 1)) ]; then\
+		tput civis; \
+		printf "\r"; \
+		x=0 ; \
+		while [ $$x -ne $(COUNT) ]; do \
+			printf $(G)"▇"; \
+			let "x+=1"; \
+		done ; \
+		y=0; \
+		for x in $(SOURCES); do \
+			let "y+=1"; \
+		done ; \
+		x=$(COUNT); \
+		while [ $$x -ne $$y ] ; do \
+			printf " "; \
+			let "x+=1"; \
+		done; \
+		x=$(COUNT); \
+		let "x*=100"; \
+		printf $(X)"| "; \
+		echo -n $$((x / y)); \
+		printf "%%";\
+	else \
 		printf $(G)"▇"; \
-		let "x+=1"; \
-	done ; \
-	y=0; \
-	for x in $(SOURCES); do \
-		let "y+=1"; \
-	done ; \
-	x=$(COUNT); \
-	while [ $$x -ne $$y ] ; do \
-		printf " "; \
-		let "x+=1"; \
-	done; \
-	x=$(COUNT); \
-	let "x*=100"; \
-	printf $(X)"| "; \
-	echo -n $$((x / y)); \
-	printf "%%";
+	fi
 
 
 all: external-target
