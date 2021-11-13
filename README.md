@@ -23,7 +23,7 @@ libft is the first project at 42. It is about creating your first library and re
 | :---                          | :---        | :---           |   
 | shows the prototype of the function. To save space the keyword *const* remains unused | a really short description. For a longer description please read the manual | external functions used (f.e free, malloc) |
 
-> Description of the library the real function are from
+> Description of the library the real functions are from
 
 **How to use:**
 
