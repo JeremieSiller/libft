@@ -81,14 +81,14 @@ CUT = "\033[K"
 OBJECTS = $(SOURCES:.c=.o)
 
 %.o : %.c
+	@tput civis
 	@if [ $(COUNT) -eq 0 ] ; then\
 		printf $(Y)"Compiling $(NAME):\n";\
 		fi;
+	@$(CC) $(CFLAGS) -o $@ -c $< || tput cnorm
 	@$(eval COUNT := $(shell ls -R | grep -E "\.o" | wc -w))
 	@$(eval COUNT=$(shell echo $$(($(COUNT)+1))))
-	@$(CC) $(CFLAGS) -o $@ -c $<
 	@if [ $(COUNT) -ne $$(($(COUNT_SRC) + 1)) ]; then\
-		tput civis; \
 		printf "\r"; \
 		x=0 ; \
 		while [ $$x -ne $(COUNT) ]; do \
@@ -144,7 +144,7 @@ internal-clean:
 			printf $(X)"| ";\
 			echo -n $$((y * 100 / i)); \
 			printf "%%";\
-			sleep 0.1; \
+			sleep 0.05; \
 			rm -f $$x; \
 		done;\
 		printf $(X)"\n";\
